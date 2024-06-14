@@ -1,0 +1,269 @@
+%-----------------------------------------------------------------------------------------------------------------------------------------------%
+%	The MIT License (MIT)
+%
+%	Copyright (c) 2021 Jitin Nair
+%
+%	Permission is hereby granted, free of charge, to any person obtaining a copy
+%	of this software and associated documentation files (the "Software"), to deal
+%	in the Software without restriction, including without limitation the rights
+%	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+%	copies of the Software, and to permit persons to whom the Software is
+%	furnished to do so, subject to the following conditions:
+%	
+%	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+%	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+%	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+%	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+%	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+%	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+%	THE SOFTWARE.
+%	
+%
+%-----------------------------------------------------------------------------------------------------------------------------------------------%
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT DEFINITION
+%----------------------------------------------------------------------------------------
+
+% article class because we want to fully customize the page and not use a cv template
+\documentclass[a4paper,12pt]{article}
+
+%----------------------------------------------------------------------------------------
+%	FONT
+%----------------------------------------------------------------------------------------
+
+% % fontspec allows you to use TTF/OTF fonts directly
+% \usepackage{fontspec}
+% \defaultfontfeatures{Ligatures=TeX}
+
+% % modified for ShareLaTeX use
+% \setmainfont[
+% SmallCapsFont = Fontin-SmallCaps.otf,
+% BoldFont = Fontin-Bold.otf,
+% ItalicFont = Fontin-Italic.otf
+% ]
+% {Fontin.otf}
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES
+%----------------------------------------------------------------------------------------
+\usepackage{xeCJK}
+\setCJKmonofont{微軟正黑體}
+
+\usepackage{url}
+\usepackage{parskip} 	
+
+%other packages for formatting
+\RequirePackage{color}
+\RequirePackage{graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[scale=0.9]{geometry}
+
+%tabularx environment
+\usepackage{tabularx}
+
+%for lists within experience section
+\usepackage{enumitem}
+
+% centered version of 'X' col. type
+\newcolumntype{C}{>{\centering\arraybackslash}X} 
+
+%to prevent spillover of tabular into next pages
+\usepackage{supertabular}
+\usepackage{tabularx}
+\newlength{\fullcollw}
+\setlength{\fullcollw}{0.47\textwidth}
+
+%custom \section
+\usepackage{titlesec}				
+\usepackage{multicol}
+\usepackage{multirow}
+
+%CV Sections inspired by: 
+%http://stefano.italians.nl/archives/26
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{10pt}{10pt}
+
+%for publications
+\usepackage[backend=biber, style=numeric, sorting=none]{biblatex}
+%Setup hyperref package, and colours for links
+\usepackage[unicode, draft=false]{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\definecolor{dakrblue}{RGB}{21,63,175}
+\definecolor{orangetag}{RGB}{175,56,21}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour,citecolor=blue}
+\addbibresource{citations.bib}
+\setlength\bibitemsep{1em}
+
+%for social icons
+\usepackage{fontawesome5}
+
+%debug page outer frames
+%\usepackage{showframe}
+
+%----------------------------------------------------------------------------------------
+%	BEGIN DOCUMENT
+%----------------------------------------------------------------------------------------
+\begin{document}
+
+% non-numbered pages
+\pagestyle{plain} 
+
+%----------------------------------------------------------------------------------------
+%	TITLE
+%----------------------------------------------------------------------------------------
+
+% \begin{tabularx}{\linewidth}{@{} C @{}}
+% \Huge{鄭詠澤} \\[7.5pt]
+% \href{https://github.com/Mes0903}{\raisebox{-0.05\height}\faGithub\ Mes0903} \ $|$ \ 
+% \href{https://mes0903.github.io/index.html}{\raisebox{-0.05\height}\faGlobe \ Mes's Studio} \ $|$ \ 
+% \href{mailto:mes900903@gmail.com}{\raisebox{-0.05\height}\faEnvelope \ mes900903@gmail.com} \ $|$ \ 
+% \href{tel:0935528966}{\raisebox{-0.05\height}\faMobile \ 0935528966} \\
+% \end{tabularx}
+
+%----------------------------------------------------------------------------------------
+% Autobiography
+%----------------------------------------------------------------------------------------
+
+%Interests/ Keywords/ Summary
+\section{Autobiography}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\multicolumn{2}{@{}X@{}}{
+  \hspace*{1em}
+  我是來自中央大學數學系大四的鄭詠澤，從大一開始在數學系的計中擔任了兩年的工讀生，並從大三開始擔任了兩年的網管，夢想是自己從硬體設計到作業系統開發來製作一台遊戲主機，為了完成這個夢想，我於大一開始深入學習 C 與 Cpp，研讀 Cpp 的標準與 committee paper，最後撰寫了一系列的 Cpp 教學，內容包含語法解析及標準與會議論文的整理，還有在與一些系統工程師交流時的所見所聞，大約去年時這系列的文章\textcolor{orangetag}{\textbf{在開源社群中被分享}}，\textcolor{orangetag}{\textbf{目前在 github 上有 137 顆星星}}。
+}
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+% Learning Protfolio
+%----------------------------------------------------------------------------------------
+\section{Learning Portfolio}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textcolor{dakrblue}{\textbf{Enlightenment}} \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{
+  \hspace*{1em}
+  大一在因緣際會下我加入了系上的計算機中心擔任工讀生，在這裡我認識到了許多優秀且熱心的學長姐。 每周計中的學長姊都會舉辦讀書會分享資工領域的知識，材料有深有淺，幫助我增廣了許多見聞。 而每個月計中已畢業的學長姐會舉辦另一場讀書會，分享工作方面的專業知識。
+  
+  \hspace*{1em}
+  當時最多人分享的是 kernel 相關的知識，\textcolor{orangetag}{\textbf{因此我自大一起便開始研讀作業系統相關的知識}}，也發現我的夢想與作業系統有著不可分割的關係，由於作業系統需要滿足不同資電領域的需求，導致其擁有一種宏觀的美，深深地吸引了我。
+}
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textcolor{dakrblue}{\textbf{Moving Forward}} \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{
+  \hspace*{1em}
+  抱持著滿腔熱忱，我在\textcolor{orangetag}{\textbf{大一時以中央資工系的課表為基準，獨自將資工系的必修課程讀完了}}，大部分是透過線上課程，一部分是自行閱讀原文書並於開源社群發問來學習的。 另外由於作業系統的特性，我開始多方旁聽與選修不同領域的課，如「近代人工智慧」、「電腦攻擊與防禦」、「程式語言及其應用」、「3D計算機圖學」、「無線感測網路協定與應用」與「電腦輔助超大型積體電路設計」等，旨在學習與體驗不同領域的知識。 由於大部分專業領域的課程都是碩博的課，因此都有相當多的實作與論文閱讀要求，\textcolor{orangetag}{\textbf{在高強度的課程安排下我如願入門學習了許多領域，且累積了許多的實作經驗}}。
+
+  \hspace*{1em}
+  為了實現自己的夢想，我也旁聽與選修了許多嵌入式系統與作業系統相關的課，如「計算機結構」、「Linux 作業系統」、「作業系統設計與實作」、「新興記憶儲存系統元件設計」、「嵌入式非揮發性記憶體系統安全設計」等。 在這些課程中我也累積許多實作，並將這些經驗應用到了自己的 side projects 與工作中。
+}
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+% Work Experience
+%----------------------------------------------------------------------------------------
+\section{Work Experience}
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textcolor{dakrblue}{\textbf{Servitor of Computer Center}} & \hfill \textcolor{dakrblue}{\textbf{09/2020 - 07/2022}} \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{
+  \hspace*{1em}
+  大一大二時我擔任了計中的工讀生，主要負責系上的硬件維修與偵錯的工作，如系上電腦、廣播設備維修及調整等事務，當系上有什麼服務的開發需求時我們會在網管的帶領下一同完成較簡單的模組開發。
+}
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textcolor{dakrblue}{\textbf{Servitor of Robotics Lab}} & \hfill \textcolor{dakrblue}{\textbf{09/2021 - 02/2022}} \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{
+  \hspace*{1em}
+  大二時我還進入了系上的機器人實驗室擔任工讀生，日常事務主要為維護系上教學用的機器人與協助「機器人專題」與「資料科學導論/專題」修課生解決上課及作業問題。
+  
+  \hspace*{1em}
+  除了日常事務，當時實驗室正在執行教學實踐計畫「系狗計畫：人工智慧教學平台」，在其中我負責了 \textcolor{orangetag}{\textbf{3D 零件的列印與慣性感測元件的開發}}。 這個計畫本質上就是一個大型的嵌入式系統專案，結合了之前的學習經驗，這份工作進行得十分順利，我也做得非常開心。
+
+  \hspace*{1em}
+  另外，實驗室每學期都會開設對全校開放的 ROS Tutorial，我在大二上時\textcolor{orangetag}{\textbf{擔任了主講者}}，並針對課程撰寫了一份教材，此份教材後來也\textcolor{orangetag}{\textbf{在台灣的開源社群中被分享}}，目前於 Google 搜尋「ROS 教學」，第二個條目就是我們的教材。 在後來的每個學期，我也時常會回去幫忙，可能是擔任部份章節的講者，或是解答學生疑問的助教。
+}
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textcolor{dakrblue}{\textbf{Developer \& Maintainer of 子由數學小學堂}} & \hfill \textcolor{dakrblue}{\textbf{07/2023 - CURRENT}} \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{
+  \hspace*{1em}
+  大四這年我擔任了系上「子由數學小學堂」的維護人，並\textcolor{orangetag}{\textbf{獨自完成了來自 Hyread 的產學合作}}，期間還\textcolor{orangetag}{\textbf{改良了原先架構不支援 HSTS 的問題}}，同時完成了 certbot 的設定使其可以自動更新 SSL 憑證。
+}
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\multicolumn{2}{@{}X@{}}{
+  \hspace*{1em}
+  由於教育部的規定，每學年都會施行資安檢查。 子由數學小學堂由於歷史問題擁有許多安全漏洞，在任內我\textcolor{orangetag}{\textbf{修復了多處 XSS 與 SQL injection 漏洞}}，使其成功通過教育部指定的弱點掃描檢查。
+}
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textcolor{dakrblue}{\textbf{MIS of Computer Center}} & \hfill \textcolor{dakrblue}{\textbf{07/2022 - CURRENT}} \\[3.75pt]
+\multicolumn{2}{@{}X@{}}{
+  \hspace*{1em}
+  大三我接了網管，第一年我主要負責系上部分服務的維護與滿足系上授課需求。 除了執行這些工作，我也自行去閱讀了 CCNA 的線上課程，為之後的系上伺服器與服務管理做準備。 另外這年我還\textcolor{orangetag}{\textbf{獨自開發了一個擁有圖形化介面的 Label 工具}}供資料科學的修課生使用，此工具後來作為高教深耕計畫貢獻給了系上。
+
+  \hspace*{1em}
+  大四時我發現系上的伺服器架構混用了 Docker 與 Kubernetes，這導致了服務的容器不穩定，同時我還發現系上的 NAS server 權限管控沒有做好，這可能會導致資料遺失或檔案系統的損毀。 因此我\textcolor{orangetag}{\textbf{獨自重建了系上的 NAS server 與異地備份系統}}，並以 Promox 取代原先的伺服器架構，使用 PVE HA 做 Replication，如此一來，即使伺服器叢集內的某台機器臨時斷線/斷電，系上的服務也能持續正常運作，\textcolor{orangetag}{\textbf{高度提升了伺服器叢集的穩定性}}。 另外，我還引入了伺服器的 IPMI 系統，架設了服務用的 NAT server 與電腦教室用的 DHCP server，並對系上 switch 切分 VLAN，\textcolor{orangetag}{\textbf{提升了整體的網路安全}}。
+
+  \hspace*{1em}
+  除了伺服器維護的工作，我還負責帶領計中的工讀生\textcolor{orangetag}{\textbf{完成系上的高教深耕計畫}}，目前正在進行的計畫有\textcolor{orangetag}{\textbf{五項}}：「子由數學小學堂 APP」、「子由數學小學堂 AI 推薦系統」、「子由數學小學堂 AI 素養題設計」、「數學教學視覺化」、「理學院 CPE 計畫」。 我在這當中擔任\textcolor{orangetag}{\textbf{顧問}}的角色，負責安排與監督工讀生們的工作時程，當我發現底下工讀生有實作上的困難，或是專案架構有問題，可能成為後續維護的隱憂時，就會介入引導及協助工讀生完成工作，像是幫忙利用 Design Pattern 與 CMake 建立現代化的專案架構，或是協助建立開發日誌與 doxygen 文件等。
+}
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+%	Motivation and Future Works
+%----------------------------------------------------------------------------------------
+\section{Motivation and Future Works}
+
+\begin{tabularx}{\linewidth}{@{}l X@{}}
+\textcolor{dakrblue}{\textbf{動機 \& 讀書計畫}}\\[3.75pt]
+\multicolumn{2}{@{}X@{}}{
+  \hspace*{1em}
+  我雖然非常擅長 Top-down 的學習，卻不擅長 Bottom-up 的方法，也因此本系的課我修的十分辛苦，儘管如此，我仍於本系努力嘗試學習了三年，即使結果不是很好，但我仍認為這三年的訓練使我擁有了比一般學生更良好的的數學基礎。 
+  
+  \hspace*{1em}
+  也因為這三年的嘗試，讓我在大三時下定決心，在負責任地將網管工作完成，將系上伺服器整頓完善後，要再嘗試一次轉學。轉學後我希望能照進度將必修一一修過，\textcolor{orangetag}{\textbf{對自己自學的結果做一個驗證}}。 同時過往的學習經驗讓我發現，若有電子電路及微分方程的能力，在某些議題的研讀上會輕鬆許多，因此我還希望能學習\textcolor{orangetag}{\textbf{電子學、電路學及微分方程}}。
+
+  \hspace*{1em}
+  在課餘時間，我希望\textcolor{orangetag}{\textbf{繼續開發自己的作業系統}}，在資工系的畢業專題中，我於 QEMU 上利用 RISC-V 與 C/C++ 實作了一個簡單的作業系統，其擁有簡單的 bootloader、page、interrupt、context switch、preemtive multitasking 與 systemcall。 但目前的實作仍有許多不足且過於簡化，因此我預期繼續先完成基礎的 shell 與 ELF Loader，再來往 Frame buffer 的方向前進，以方便之後結合自身的圖學知識開發作業系統，最後將其從 QEMU 移植到實機上。
+}
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{@{}l X@{}}
+\textcolor{dakrblue}{\textbf{探索主題一、Linux Kernel \& FreeBSD 貢獻}}\\[3.75pt]
+\multicolumn{2}{@{}X@{}}{  
+  \hspace*{1em}
+  除了自己的作業系統，在課餘時間我希望能完成成功大學的「Linux 核心實作」課程，這門課有許多非常多艱難且踏實的作業，由於自己四年來一直忙於系上工作與課堂作業及論文閱讀，雖然有參加過這門課且貢獻了一些教材，但一直沒有時間完成這門課的作業。
+
+  \hspace*{1em}
+  因此我希望在轉學後，自己能完成這門課的作業，並著手開始\textcolor{orangetag}{\textbf{貢獻 Linux Kernel 與 FreeBSD}}。 我已\textcolor{orangetag}{\textbf{有多次 kernel module 的開發經驗}}，並且在「新興記憶儲存系統元件設計」與「嵌入式非揮發性記憶體系統安全設計」這兩門課中，我花了許多心思在閱讀 \textcolor{orangetag}{\textbf{ReRAM 與 stable filesystem}} 的議題，我認為這是一個非常不錯的方向去嘗試貢獻。
+}
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{@{}l X@{}}
+\textcolor{dakrblue}{\textbf{探索主題二、遊戲引擎開發}}\\[3.75pt]
+\multicolumn{2}{@{}X@{}}{  
+  \hspace*{1em}
+  雖然自己有閱讀過許多電腦圖學相關的議題，也有許多圖學相關的小實作，如渲染器、物理碰撞與光線追蹤等，但一直沒有時間將這些小實作組合起來成一個引擎。 
+  
+  \hspace*{1em}
+  在擔任網管的兩年中，我意識到只是擁有小實作是不夠的，就算擁有許多完整功能的小模組，實際在組裝成完整專案時仍會有許多撰寫單一模組時沒有想到的問題出現，因此我認為要想完整學習一個東西，就需要將其完整實作出來。 為此，在轉學後我希望能著手利用以往學習到的圖學知識，\textcolor{orangetag}{\textbf{開發一個完整的遊戲引擎}}。
+}
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+%	Links
+%----------------------------------------------------------------------------------------
+% \begin{refsection}[citations.bib]
+%   \nocite{*}
+% \printbibliography
+% \end{refsection}
+
+\end{document}
