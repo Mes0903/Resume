@@ -1,0 +1,167 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage{fix-cm}
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX}
+\setmainfont{TeX Gyre Pagella}
+\newfontface\chinesenamefont{DroidSansFallbackFull.ttf}[
+  Path=/usr/share/fonts/truetype/droid/,
+  Scale=0.84
+]
+
+\usepackage[
+  a4paper,
+  top=8.5mm,
+  bottom=8.5mm,
+  left=12mm,
+  right=12mm
+]{geometry}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\definecolor{sectionblue}{HTML}{183B5B}
+\definecolor{dategray}{HTML}{5B6470}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectionblue,
+  urlcolor=sectionblue,
+  pdfauthor={Yung-Tse Cheng},
+  pdftitle={Yung-Tse Cheng - Systems and Graphics Software Engineer},
+  pdfsubject={Resume}
+}
+\urlstyle{same}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\tabcolsep}{0pt}
+\setlength{\emergencystretch}{1.5em}
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\tolerance=1800
+\frenchspacing
+
+\setlist[itemize]{
+  leftmargin=1.25em,
+  label={\char"2022},
+  topsep=3pt,
+  itemsep=1.2pt,
+  parsep=0pt,
+  partopsep=0pt
+}
+
+\newcommand{\contactsep}{\hspace{0.7em}{\color{dategray}\textbar}\hspace{0.7em}}
+\newcommand{\linktag}[2]{%
+  \href{#1}{{\color{sectionblue}\textbf{[#2]}}}%
+}
+
+\newcommand{\resumesection}[1]{%
+  \par\addvspace{7pt}%
+  {\fontsize{12.4}{14.2}\selectfont\bfseries\color{sectionblue}#1\par}%
+  \vspace{-2pt}%
+  {\color{sectionblue}\rule{\linewidth}{0.45pt}}\par
+  \vspace{2.2pt}%
+}
+
+\newcommand{\education}[3]{%
+  \noindent
+  \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lr@{}}
+    \textbf{#1} & {\color{dategray}#3} \\
+    \multicolumn{2}{@{}l@{}}{#2}
+  \end{tabular*}\par
+  \vspace{3pt}%
+}
+
+\begin{document}
+\fontsize{9.35}{12}\selectfont
+
+\begin{center}
+  \vspace*{-3pt}
+  {\fontsize{23}{24.5}\selectfont\bfseries\color{sectionblue}
+    Yung-Tse (Mes) Cheng {\normalfont\chinesenamefont 鄭詠澤}\par}
+  \vspace{4pt}
+  Taiwan\par
+  \vspace{1.5pt}
+  \href{https://github.com/Mes0903}{GitHub}\contactsep
+  \href{https://www.linkedin.com/in/yung-tse-cheng/}{LinkedIn}\contactsep
+  \href{https://mes0903.github.io/}{Website}
+\end{center}
+\vspace{-1.5pt}
+
+\resumesection{Summary}
+Computer Science undergraduate focused on Linux graphics virtualization, C++ systems programming, and GPU software stacks. Implemented VirtIO-GPU and input support for semu, presented at Open Source Summit North America 2026 and COSCUP 2026, and managed infrastructure for the NCU Mathematics Department.
+
+\resumesection{Education}
+\education{National Taiwan Normal University}{B.S. in Computer Science and Information Engineering}{Sep 2024--Present}
+\begin{itemize}
+  \item \textbf{Member}, Computer Graphics Laboratory
+  \begin{itemize}[leftmargin=1.4em, label={\textendash}, topsep=1pt, itemsep=0.8pt]
+    \item Presented VirtIO-GPU virtualization work at Open Source Summit North America 2026 and COSCUP 2026.
+  \end{itemize}
+\end{itemize}
+\vspace{2.5pt}
+
+\education{National Central University}{Undergraduate Studies in Mathematics (Transferred)}{Sep 2020--Jun 2024}
+\begin{itemize}
+  \item \textbf{Systems and Network Manager}, Department of Mathematics
+  \begin{itemize}[leftmargin=1.4em, label={\textendash}, topsep=1pt, itemsep=0.8pt]
+    \item Rebuilt the department's server cluster by migrating services from Kubernetes to Proxmox VE and Docker.
+    \item Maintained web services and servers and led a student team delivering Higher Education Sprout projects.
+  \end{itemize}
+\end{itemize}
+
+\resumesection{Open Source Projects}
+\textbf{semu} \textit{--- minimalist RISC-V system emulator capable of running Linux} \linktag{https://github.com/sysprog21/semu}{GitHub}
+\begin{itemize}
+  \item Implemented VirtIO-GPU 2D/3D graphics and keyboard/mouse input via Linux DRM/KMS, VirGL, and an SPSC event queue.
+\end{itemize}
+\vspace{2.5pt}
+
+\textbf{5568ke} \textit{--- C++20/OpenGL glTF renderer and animation sandbox} \linktag{https://github.com/Mes0903/5568ke}{GitHub}
+\begin{itemize}
+  \item Built a glTF renderer with scene graphs, keyframe animation, GPU skinning, and ImGui playback controls.
+\end{itemize}
+\vspace{2.5pt}
+
+\textbf{Mase} \textit{--- maze generation and pathfinding visualizer} \linktag{https://github.com/Mes0903/Mase}{GitHub}
+\begin{itemize}
+  \item Built a C++17/OpenGL/ImGui visualizer for three maze generators and five pathfinding algorithms, including UCS and A*.
+\end{itemize}
+
+\resumesection{Talks}
+\textbf{Open Source Summit North America 2026} \linktag{https://osselcna2026.sched.com/event/2JQrw/demystifying-virtio-gpu-building-a-graphics-virtualization-bridge-from-scratch-yung-tse-cheng-national-taiwan-normal-university-sheng-wen-colin-cheng-the-university-of-texas-at-austin}{Talk}\,
+\linktag{https://github.com/Mes0903/talks/blob/main/OSSNA-2026-talk/OSS-NA26-Talk.pptx}{Slides}
+\begin{itemize}
+  \item Embedded Linux Conference track --- ``Demystifying VirtIO-GPU: Building a Graphics Virtualization Bridge From Scratch''.
+\end{itemize}
+\vspace{2.5pt}
+
+\textbf{COSCUP 2026} \linktag{https://coscup.org/2026/en/session/N87PMR/}{Talk}\,
+\linktag{https://github.com/Mes0903/talks/blob/main/coscup-2026-talk/COSCUP-2026-Mesa-vGPU-3D.pptx}{Slides}
+\begin{itemize}
+  \item System Software track --- ``How a VM Draws Pixels: Mesa, Gallium, and virtio-gpu 3D''.
+\end{itemize}
+
+\resumesection{Technical Publications}
+\textbf{Cpp-Miner} \linktag{https://github.com/Mes0903/Cpp-Miner}{GitHub}
+\begin{itemize}
+  \item Authored a Chinese-language series explaining C++ standard terminology and modern C++ features.
+\end{itemize}
+\vspace{2.5pt}
+
+\textbf{Traditional Chinese technical writing}
+\begin{itemize}
+  \item Translated the xv6 RISC-V book into Traditional Chinese. \linktag{https://github.com/Mes0903/xv6-riscv-book-zh-TW}{GitHub}
+  \item Translated the official Khronos glTF Tutorial into Traditional Chinese. \linktag{https://github.com/Mes0903/glTF-Tutorials-zh-TW}{GitHub}
+  \item Translated \textit{Operating System in 1,000 Lines} into Traditional Chinese. \linktag{https://github.com/nuta/operating-system-in-1000-lines}{GitHub}
+\end{itemize}
+
+\resumesection{Skills}
+\textbf{Programming:} C++, C, Python, Lua\\
+\textbf{Systems \& Graphics:} Linux, RISC-V, VirtIO, DRM/KMS, QEMU, OpenGL, Vulkan, Mesa/Gallium, VirGL\\
+\textbf{Infrastructure \& Tools:} Docker, Proxmox VE, CMake, Git, GLFW, ImGui\\
+\textbf{Languages:} Mandarin Chinese (native), English (working proficiency), Japanese (basic)
+
+\end{document}

@@ -1,5 +1,8 @@
-2024 轉學用的簡歷和自傳，感謝 marty 大大分享模板
+# Resume
 
-# Acknowledgments
+- `intern-usage/`：實習用的履歷
+- `transfer-school-usage/`：2024 年轉學申請使用的履歷和自傳
+
+## Acknowledgments
 
 - https://github.com/marty1885/resume
